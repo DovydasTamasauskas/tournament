@@ -1,6 +1,9 @@
 import "./Table.css";
+import { useSelector } from "react-redux";
 
 const Table = () => {
+  const counter = useSelector((state) => state);
+  console.log(counter);
   return (
     <table className="table">
       <thead>
