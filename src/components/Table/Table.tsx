@@ -2,8 +2,8 @@ import "./Table.css";
 import { useSelector } from "react-redux";
 
 const Table = () => {
-  const counter = useSelector((state) => state);
-  console.log(counter);
+  const teams = useSelector((state: any) => state.teams);
+  console.log(teams);
   return (
     <table className="table">
       <thead>
@@ -18,12 +18,15 @@ const Table = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
+        {teams &&
+          teams.map((team: any) => (
+            <tr>
+              <th scope="row">1</th>
+              <td>{team.name}</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+          ))}
       </tbody>
     </table>
   );
