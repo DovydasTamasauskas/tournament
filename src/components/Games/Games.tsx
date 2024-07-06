@@ -3,26 +3,25 @@ import { useSelector } from "react-redux";
 
 const Games = () => {
   const teams = useSelector((state: any) => state.teams);
+
   return (
     <>
       {teams &&
         teams.length > 1 &&
-        teams.flatMap((team1: any, index1: number) => {
-          return teams
-            .map((team2: any, index2: number) => {
-              return { team1, team2 };
-            })
-            .filter((teams: any) => {
-              return teams.team1.name != teams.team2.name;
-            })
-            .map((teams: any) => (
-              <Match
-                // key={team.name}
-                team1={teams.team2.name}
-                team2={teams.team1.name}
-              ></Match>
-            ));
-        })}
+        teams
+          .flatMap((team1: any, index1: number) =>
+            teams.map((team2: any, index2: number) =>
+              index1 < index2 ? { team1, team2 } : null
+            )
+          )
+          .filter((duel: any) => duel)
+          .map((duel: any) => (
+            <Match
+              key={`${duel.team1.name}-${duel.team2.name}`}
+              team1={duel.team2.name}
+              team2={duel.team1.name}
+            ></Match>
+          ))}
     </>
   );
 };
