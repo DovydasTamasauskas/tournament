@@ -17,20 +17,20 @@ const Table = () => {
           <th scope="col">Pionts</th>
         </tr>
       </thead>
-      <tbody>
-        {leaderBoard &&
-          leaderBoard.map((team: any, index: number) => (
-            <tr>
-              <th scope="row">{index + 1}</th>
-              <td>{team.name}</td>
-              <td>{team.played}</td>
-              <td>{team.wins}</td>
-              <td>{team.draws}</td>
-              <td>{team.losses}</td>
-              <td>{team.points}</td>
+      {leaderBoard &&
+        Object.keys(leaderBoard)
+          .sort((a, b) => leaderBoard[b].points - leaderBoard[a].points)
+          .map((team, index) => (
+            <tr key={team}>
+              <td>{index + 1}</td>
+              <td>{team}</td>
+              <td>{leaderBoard[team].points}</td>
+              <td>{leaderBoard[team].played}</td>
+              <td>{leaderBoard[team].wins}</td>
+              <td>{leaderBoard[team].draws}</td>
+              <td>{leaderBoard[team].losses}</td>
             </tr>
           ))}
-      </tbody>
     </table>
   );
 };
