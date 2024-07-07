@@ -7,11 +7,14 @@ const Match = (props: any) => {
 
   const [score1, setScore1] = useState<string>();
   const [score2, setScore2] = useState<string>();
+  const [isDisabled, setisDisabled] = useState(false);
   const dispatch = useDispatch();
 
   const onClick = () => {
-    console.log(score1, score2);
-    dispatch(recordBoard({ team1, team2, score1, score2 }));
+    if (score1 && score2 && !!Number(score1) && !!Number(score2)) {
+      dispatch(recordBoard({ team1, team2, score1, score2 }));
+      setisDisabled(true);
+    }
   };
 
   const onChange = (setTeamScrore: { (): void; (): void }) => {
@@ -26,6 +29,7 @@ const Match = (props: any) => {
         name={team1}
         style={{ width: "15px" }}
         onChange={(e) => onChange(() => setScore1(e.target.value))}
+        disabled={isDisabled}
       />
       :
       <input
@@ -33,8 +37,9 @@ const Match = (props: any) => {
         name={team2}
         style={{ width: "15px" }}
         onChange={(e) => onChange(() => setScore2(e.target.value))}
+        disabled={isDisabled}
       />{" "}
-      {team2} <button onClick={onClick}>submit</button>
+      {team2} {!isDisabled && <button onClick={onClick}>submit</button>}
     </div>
   );
 };
