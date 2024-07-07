@@ -1,8 +1,9 @@
 import "./Table.css";
 import { useSelector } from "react-redux";
+import { StateProps } from "../../reducers/types";
 
 const Table = () => {
-  const leaderBoard = useSelector((state: any) => state.leaderBoard);
+  const leaderBoard = useSelector((state: StateProps) => state.leaderBoard);
 
   return (
     <table className="table">
@@ -24,11 +25,11 @@ const Table = () => {
             <tr key={team}>
               <td>{index + 1}</td>
               <td>{team}</td>
-              <td>{leaderBoard[team].points}</td>
               <td>{leaderBoard[team].played}</td>
               <td>{leaderBoard[team].wins}</td>
               <td>{leaderBoard[team].draws}</td>
               <td>{leaderBoard[team].losses}</td>
+              <td>{leaderBoard[team].points}</td>
             </tr>
           ))}
     </table>

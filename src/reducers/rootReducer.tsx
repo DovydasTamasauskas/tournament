@@ -1,10 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { StateProps } from "./types";
+
+const initialState: StateProps = {
+  leaderBoard: {},
+};
 
 export const rootStore = createSlice({
   name: "teams",
-  initialState: {
-    leaderBoard: {},
-  },
+  initialState,
   reducers: {
     addTeam: (state, action) => {
       const name = action.payload;
@@ -36,8 +39,8 @@ export const rootStore = createSlice({
         state.leaderBoard[team2].draws += 1;
       }
 
-      state.leaderBoard[team1].gamesPlayed += 1;
-      state.leaderBoard[team2].gamesPlayed += 1;
+      state.leaderBoard[team1].played += 1;
+      state.leaderBoard[team2].played += 1;
     },
   },
 });

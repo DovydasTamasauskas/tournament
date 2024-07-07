@@ -7,7 +7,7 @@ type MatchProps = {
   team2: string;
 };
 
-const Match: React.FC<MatchProps> = (props: any) => {
+const Match: React.FC<MatchProps> = (props) => {
   const { team1, team2 } = props;
 
   const [score1, setScore1] = useState<string>();
