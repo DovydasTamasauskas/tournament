@@ -10,7 +10,6 @@ export const rootStore = createSlice({
     addTeam: (state, action) => {
       const name = action.payload;
       if (!Object.keys(state.leaderBoard).find((keyName) => keyName === name)) {
-        state.teams = [...state.teams, name];
         state.leaderBoard[name] = {
           played: 0,
           wins: 0,

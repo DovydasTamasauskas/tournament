@@ -2,7 +2,8 @@ import Match from "./Match";
 import { useSelector } from "react-redux";
 
 const Games = () => {
-  const teams = useSelector((state: any) => state.teams);
+  const leaderBoard = useSelector((state: any) => state.leaderBoard);
+  const teams = Object.keys(leaderBoard).map((key) => key);
 
   return (
     <>
