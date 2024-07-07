@@ -19,8 +19,8 @@ const Games = () => {
           .map((duel: any) => (
             <Match
               key={`${duel.team1}-${duel.team2}`}
-              team1={duel.team2}
-              team2={duel.team1}
+              team1={duel.team1}
+              team2={duel.team2}
             ></Match>
           ))}
     </>
