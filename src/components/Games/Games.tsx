@@ -17,9 +17,9 @@ const Games = () => {
           .filter((duel: any) => duel)
           .map((duel: any) => (
             <Match
-              key={`${duel.team1.name}-${duel.team2.name}`}
-              team1={duel.team2.name}
-              team2={duel.team1.name}
+              key={`${duel.team1}-${duel.team2}`}
+              team1={duel.team2}
+              team2={duel.team1}
             ></Match>
           ))}
     </>

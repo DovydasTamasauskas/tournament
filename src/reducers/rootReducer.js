@@ -9,15 +9,14 @@ export const rootStore = createSlice({
   reducers: {
     addTeam: (state, action) => {
       const name = action.payload;
-      if (!state.teams.find((team) => team.name === name)) {
-        state.teams = [...state.teams, { name }];
+      if (!Object.keys(state.leaderBoard).find((keyName) => keyName === name)) {
+        state.teams = [...state.teams, name];
         state.leaderBoard[name] = {
-          name,
-          points: 0,
-          played: 1,
+          played: 0,
           wins: 0,
           draws: 0,
           losses: 0,
+          points: 0,
         };
       }
     },
