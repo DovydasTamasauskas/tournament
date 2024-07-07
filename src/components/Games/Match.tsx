@@ -2,7 +2,12 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { recordBoard } from "../../reducers/rootReducer";
 
-const Match = (props: any) => {
+type MatchProps = {
+  team1: string;
+  team2: string;
+};
+
+const Match: React.FC<MatchProps> = (props: any) => {
   const { team1, team2 } = props;
 
   const [score1, setScore1] = useState<string>();

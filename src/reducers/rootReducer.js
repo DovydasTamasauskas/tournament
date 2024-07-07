@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 export const rootStore = createSlice({
   name: "teams",
   initialState: {
-    teams: [],
     leaderBoard: {},
   },
   reducers: {

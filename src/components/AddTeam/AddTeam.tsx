@@ -11,14 +11,14 @@ const AddTeam = () => {
     name && dispatch(addTeam(name));
   };
 
-  const onInputChange = (e: any) => {
-    const val = e.target.value;
-    val && setName(val);
-  };
-
   return (
     <>
-      <input type="text" id="name" name="name" onChange={onInputChange} />
+      <input
+        type="text"
+        id="name"
+        name="name"
+        onChange={(e) => setName(e.target.value)}
+      />
       <button onClick={onButtonClick}>Add</button>
     </>
   );
