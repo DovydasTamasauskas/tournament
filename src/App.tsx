@@ -5,10 +5,16 @@ import Games from "./components/Games/Games";
 
 function App() {
   return (
-    <div>
-      <AddTeam></AddTeam>
-      <Table></Table>
-      <Games></Games>
+    <div className="container">
+      <div className="add-team">
+        <AddTeam />
+      </div>
+      <div className="leader-board">
+        <Table />
+      </div>
+      <div className="match-making">
+        <Games />
+      </div>
     </div>
   );
 }
