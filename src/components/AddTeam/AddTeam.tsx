@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTeam } from "../../reducers/rootReducer";
+import { addTeam } from "../../redux/features/tournamentSlice";
 
 const AddTeam = () => {
   const [name, setName] = useState<string>();
