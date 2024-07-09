@@ -1,7 +1,7 @@
 import "./App.css";
-import Table from "./components/Table/Table";
-import AddTeam from "./components/AddTeam/AddTeam";
-import Games from "./components/Games/Games";
+import Table from "../components/Table/Table";
+import AddTeam from "../components/AddTeam/AddTeam";
+import Games from "../components/Games/Games";
 
 function App() {
   return (

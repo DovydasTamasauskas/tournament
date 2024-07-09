@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { recordBoard } from "../../redux/features/tournamentSlice";
+import { recordBoard } from "../../features/tournamentSlice";
 
 type MatchProps = {
   team1: string;
