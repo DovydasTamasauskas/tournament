@@ -9,7 +9,7 @@ type DuelProps = {
 
 const Games = () => {
   const leaderBoard = useSelector((state: StateProps) => state.leaderBoard);
-  const teams = Object.keys(leaderBoard).map((key) => key);
+  const teams = leaderBoard && Object.keys(leaderBoard).map((key) => key);
 
   return (
     <>
