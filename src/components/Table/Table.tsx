@@ -1,6 +1,6 @@
 import "./Table.css";
 import { useSelector } from "react-redux";
-import { StateProps } from "../../reducers/types";
+import { StateProps } from "../../features/types";
 
 const Table = () => {
   const leaderBoard = useSelector((state: StateProps) => state.leaderBoard);

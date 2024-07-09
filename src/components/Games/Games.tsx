@@ -1,6 +1,6 @@
 import Match from "./Match";
 import { useSelector } from "react-redux";
-import { StateProps } from "../../reducers/types";
+import { StateProps } from "../../features/types";
 
 type DuelProps = {
   team1: string;

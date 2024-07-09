@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import tournamentReducer from "../features/tournamentSlice";
-import { localStorageMiddleware } from "../utils/localStorage/localStorageMiddleware";
-import { loadState } from "../utils/localStorage/localStorage";
+import { localStorageMiddleware } from "../utils/localStorageMiddleware";
+import { loadState } from "../utils/localStorage";
 
 const preloadedState = loadState();
 
