@@ -1,16 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 import tournamentReducer from "../features/tournamentSlice";
 import { localStorageMiddleware } from "../utils/localStorageMiddleware";
-import { loadState } from "../utils/localStorage";
+import { loadLeaderBoard, loadMatchHistory } from "../utils/localStorage";
 
-const preloadedState = loadState();
+const preloadedLeaderBoard = loadLeaderBoard();
+const preloadedMatchHistory = loadMatchHistory();
 
 export const store = configureStore({
   reducer: tournamentReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(localStorageMiddleware),
   preloadedState: {
-    leaderBoard: preloadedState,
+    leaderBoard: preloadedLeaderBoard,
+    matchHistory: preloadedMatchHistory,
   },
 });
 

@@ -3,6 +3,7 @@ import { StateProps } from "./types";
 
 const initialState: StateProps = {
   leaderBoard: {},
+  matchHistory: [],
 };
 
 export const tournamentSlice = createSlice({
@@ -44,6 +45,20 @@ export const tournamentSlice = createSlice({
 
       state.leaderBoard[team1].played += 1;
       state.leaderBoard[team2].played += 1;
+
+      if (state?.matchHistory?.length > 0) {
+        state.matchHistory.push({
+          team1: { name: team1, score: score1 },
+          team2: { name: team2, score: score2 },
+        });
+      } else {
+        state.matchHistory = [
+          {
+            team1: { name: team1, score: score1 },
+            team2: { name: team2, score: score2 },
+          },
+        ];
+      }
     },
   },
 });

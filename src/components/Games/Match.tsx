@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { recordBoard } from "../../features/tournamentSlice";
+import { StateProps } from "../../features/types";
 
 type MatchProps = {
   team1: string;
@@ -13,7 +14,23 @@ const Match: React.FC<MatchProps> = (props) => {
   const [score1, setScore1] = useState<string>();
   const [score2, setScore2] = useState<string>();
   const [isDisabled, setisDisabled] = useState(false);
+
   const dispatch = useDispatch();
+
+  const matchHistory = useSelector((state: StateProps) => state.matchHistory);
+
+  useEffect(() => {
+    matchHistory.forEach((match) => {
+      if (
+        (match.team1.name === team1 && match.team2.name === team2) ||
+        (match.team2.name === team1 && match.team1.name === team2)
+      ) {
+        setScore1(match.team1.score.toString());
+        setScore2(match.team2.score.toString());
+        setisDisabled(true);
+      }
+    });
+  }, [matchHistory, team1, team2]);
 
   const isNumber = (val: string | undefined) =>
     (val && !!Number(val)) || val === "0";
@@ -31,6 +48,7 @@ const Match: React.FC<MatchProps> = (props) => {
       <input
         type="text"
         name={team1}
+        value={score1}
         style={{ width: "15px" }}
         onChange={(e) => setScore1(e.target.value)}
         disabled={isDisabled}
@@ -39,6 +57,7 @@ const Match: React.FC<MatchProps> = (props) => {
       <input
         type="text"
         name={team2}
+        value={score2}
         style={{ width: "15px" }}
         onChange={(e) => setScore2(e.target.value)}
         disabled={isDisabled}

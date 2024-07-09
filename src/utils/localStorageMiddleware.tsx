@@ -6,5 +6,6 @@ export const localStorageMiddleware: Middleware =
     const result = next(action);
     const state: RootState = store.getState();
     localStorage.setItem("tournamentState", JSON.stringify(state.leaderBoard));
+    localStorage.setItem("matchState", JSON.stringify(state.matchHistory));
     return result;
   };
