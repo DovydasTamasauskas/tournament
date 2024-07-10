@@ -26,4 +26,4 @@ Start the project:
 npm start
 ```
 
-Navigate to `http://localhost:3000/` link. You should see currency tournament form.
+Navigate to `http://localhost:3000/` link. You should see tournament form.
