@@ -14,3 +14,11 @@ th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+tr:hover {
+  background-color: #f2f2f2;
+}
+
+th {
+  background-color: #3c413c;
+  color: white;
+}
