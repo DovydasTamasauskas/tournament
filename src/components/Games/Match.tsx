@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { recordBoard } from "../../features/tournamentSlice";
 import { StateProps } from "../../features/types";
+import "./Match.css";
 
 type MatchProps = {
   team1: string;
@@ -43,26 +44,27 @@ const Match: React.FC<MatchProps> = (props) => {
   };
 
   return (
-    <div>
-      {team1}
+    <div className="match-container">
+      <span className="team-name">{team1}</span>
       <input
         type="text"
         name={team1}
         value={score1}
-        style={{ width: "15px" }}
         onChange={(e) => setScore1(e.target.value)}
         disabled={isDisabled}
+        className="team-score"
       />
-      :
+      <span className="score-separator">:</span>
       <input
         type="text"
         name={team2}
         value={score2}
-        style={{ width: "15px" }}
         onChange={(e) => setScore2(e.target.value)}
         disabled={isDisabled}
+        className="team-score"
       />
-      {team2} {!isDisabled && <button onClick={onClick}>submit</button>}
+      <span>{team2}</span>
+      {!isDisabled && <button onClick={onClick}>Submit</button>}
     </div>
   );
 };
